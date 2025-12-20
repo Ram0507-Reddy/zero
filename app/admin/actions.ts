@@ -60,7 +60,6 @@ export async function updateServiceAction(slug: string, formData: FormData) {
     revalidatePath('/'); // Update public home
     revalidatePath('/services/[slug]', 'page'); // Update detail pages
     revalidatePath('/admin/dashboard'); // Update admin
-    return { success: true };
 }
 
 export async function changeLeadStatus(id: string, status: 'new' | 'contacted' | 'closed') {
