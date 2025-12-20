@@ -1,0 +1,26 @@
+{
+    "hero": {
+        "badge": "v1.0.0 STABLE RELEASE",
+        "title": "The Privacy-First, Self-Hosted Suite.",
+        "subtitle": "Own your data. No hidden fees. 0% Transaction Fees.\nThe developer-first gateway you've been waiting for.",
+        "ctaPrimary": "VIEW MODULES",
+        "ctaSecondary": "LIVE DEMO"
+    },
+    "problems": {
+        "title1": "SaaS Fatigue?",
+        "desc1": "Stop bleeding ₹20k+/month on scattered usage-based subscriptions like Auth0 and SendGrid.",
+        "title2": "Privacy Risk?",
+        "desc2": "Your customer data shouldn't live on 3rd party servers. Keep it grounded on your infra.",
+        "title3": "Vendor Lock-in?",
+        "desc3": "If you stop paying, your app shouldn't break. Own your Docker containers forever."
+    },
+    "sections": {
+        "coreTitle": "CORE INFRASTRUCTURE",
+        "coreDesc": "The essential building blocks for modern apps.",
+        "expansionTitle": "EXPANSION UTILITIES",
+        "expansionDesc": "Drop-in replacements for common SaaS tools.",
+        "ctaFooterTitle": "Ready to go ZERO?",
+        "ctaFooterDesc": "Stop renting your tech stack. Buy it once, run it forever.",
+        "ctaFooterButton": "GET THE SUITE"
+    }
+}

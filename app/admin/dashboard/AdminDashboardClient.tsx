@@ -3,8 +3,13 @@
 import { useState } from 'react';
 import { Service } from '@/lib/services';
 import { Lead } from '@/lib/leads';
-import { saveServiceChanges, changeLeadStatus } from './actions';
-import { logout } from '../actions';
+import ContentEditor from '@/components/ContentEditor';
+import { LandingContent } from '@/lib/content';
+import {
+    updateServiceAction,
+    changeLeadStatus,
+    logout
+} from '@/app/admin/actions';
 import {
     LayoutDashboard,
     Box,
@@ -16,16 +21,18 @@ import {
     Clock,
     XCircle,
     Phone,
-    Mail
+    Mail,
+    FileText // Import FileText for Content Icon
 } from 'lucide-react';
 
 interface Props {
     initialServices: Service[];
     initialLeads: Lead[];
+    initialContent: LandingContent;
 }
 
-export default function AdminDashboardClient({ initialServices, initialLeads }: Props) {
-    const [activeTab, setActiveTab] = useState<'services' | 'leads'>('services');
+export default function AdminDashboardClient({ initialServices, initialLeads, initialContent }: Props) {
+    const [activeTab, setActiveTab] = useState<'services' | 'leads' | 'content'>('services');
     const [searchTerm, setSearchTerm] = useState('');
 
     // Services State
@@ -49,7 +56,18 @@ export default function AdminDashboardClient({ initialServices, initialLeads }: 
         setServices(prev => prev.map(s => s.slug === editingService ? { ...s, ...editForm } as Service : s));
         setEditingService(null);
 
-        await saveServiceChanges(editingService, editForm);
+        const formData = new FormData();
+        formData.append('name', editForm.name || '');
+        formData.append('description', editForm.description || '');
+        // We don't edit features/pros in the quick dashboard view, so we skip them or send current values.
+        // Actually the dashboard view is simple. Let's just send what we have.
+        // The server action might overwrite missing fields with empty?
+        // Let's check updateServiceAction. It constructs a Partial<Service>.
+        // It reads 'features' from formData. If missing, it might be undefined.
+        // The `updateService` lib function merges data.
+        // So safe to send partial.
+
+        await updateServiceAction(editingService, formData);
         alert('Service Updated Successfully!');
     };
 
@@ -84,6 +102,12 @@ export default function AdminDashboardClient({ initialServices, initialLeads }: 
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded text-sm font-bold transition-colors ${activeTab === 'leads' ? 'bg-neon text-black' : 'text-gray-400 hover:bg-white/5'}`}
                     >
                         <Users size={18} /> LEADS & ORDERS
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('content')}
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded text-sm font-bold transition-colors ${activeTab === 'content' ? 'bg-neon text-black' : 'text-gray-400 hover:bg-white/5'}`}
+                    >
+                        <FileText size={18} /> PAGE CONTENT
                     </button>
                 </nav>
 
@@ -174,6 +198,7 @@ export default function AdminDashboardClient({ initialServices, initialLeads }: 
                     </div>
                 )}
 
+
                 {/* LEADS VIEW */}
                 {activeTab === 'leads' && (
                     <div className="bg-zinc-900 border border-white/10 rounded-lg overflow-hidden">
@@ -240,6 +265,11 @@ export default function AdminDashboardClient({ initialServices, initialLeads }: 
                             </tbody>
                         </table>
                     </div>
+                )}
+
+                {/* CONTENT EDITOR VIEW */}
+                {activeTab === 'content' && (
+                    <ContentEditor initialContent={initialContent} />
                 )}
             </main>
         </div>
