@@ -1,0 +1,30 @@
+{
+    "slug": "zero-cache",
+    "name": "Zero Cache",
+    "description": "High-performance distributed caching system compatible with Redis protocol.",
+    "enabled": false,
+    "features": [
+        "Redis Protocol Compatible",
+        "Geo-distributed replication",
+        "In-memory speed",
+        "Persistence options"
+    ],
+    "pros": [
+        "Drop-in replacement",
+        "Lower memory overhead",
+        "Simple clustering"
+    ],
+    "comparison": {
+        "competitorName": "Redis Enterprise / Upstash",
+        "competitorCons": [
+            "Pay per request/GB",
+            "Complex configuration",
+            "Cloud latency"
+        ],
+        "zeroAdvantages": [
+            "Run on your own metal",
+            "Predictable performance",
+            "No network egress costs"
+        ]
+    }
+}

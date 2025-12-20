@@ -1,0 +1,30 @@
+{
+    "slug": "zero-pay",
+    "name": "Zero Pay",
+    "description": "Universal payment orchestration. Connect Stripe, PayPal, and Crypto through a single unified API.",
+    "enabled": true,
+    "features": [
+        "Unified Payment API",
+        "Subscription Management",
+        "Automatic Tax Calculation",
+        "Fraud Detection"
+    ],
+    "pros": [
+        "Switch providers instantly",
+        "Zero transaction fees from us",
+        "Self-hosted PCI compliance helper"
+    ],
+    "comparison": {
+        "competitorName": "Paddle / Stripe Wrapper",
+        "competitorCons": [
+            "High platform fees",
+            "Account bans without warning",
+            "Hosted-only checkout"
+        ],
+        "zeroAdvantages": [
+            "Direct provider relationship",
+            "Keep all your data",
+            "Custom checkout flows"
+        ]
+    }
+}

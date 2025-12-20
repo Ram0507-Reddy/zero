@@ -1,0 +1,30 @@
+{
+    "slug": "zero-auth",
+    "name": "Zero Auth",
+    "description": "The only self-hosted identity provider you'll ever need. OIDC, SAML, and Passkeys out of the box.",
+    "enabled": true,
+    "features": [
+        "Single Sign-On (SSO)",
+        "Multi-Factor Authentication (MFA)",
+        "Role-Based Access Control",
+        "Bring Your Own Database"
+    ],
+    "pros": [
+        "Assuming total ownership of user data",
+        "No monthly active user limits",
+        "Air-gapped ready"
+    ],
+    "comparison": {
+        "competitorName": "Auth0 / okta",
+        "competitorCons": [
+            "Vendor lock-in",
+            "Expensive scaling tiers",
+            "Data residency issues"
+        ],
+        "zeroAdvantages": [
+            "Open source core",
+            "Flat one-time license",
+            "Deploy anywhere"
+        ]
+    }
+}
