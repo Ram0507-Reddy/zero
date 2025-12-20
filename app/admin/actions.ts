@@ -43,7 +43,19 @@ import { updateService, Service } from '@/lib/services';
 import { updateLeadStatus } from '@/lib/leads';
 import { revalidatePath } from 'next/cache';
 
-export async function updateServiceAction(slug: string, data: Partial<Service>) {
+export async function updateServiceAction(slug: string, formData: FormData) {
+    const data: Partial<Service> = {
+        name: formData.get('name') as string,
+        description: formData.get('description') as string,
+        features: (formData.get('features') as string)?.split(',').map(s => s.trim()).filter(Boolean),
+        pros: (formData.get('pros') as string)?.split(',').map(s => s.trim()).filter(Boolean),
+        comparison: {
+            competitorName: formData.get('competitorName') as string,
+            competitorCons: (formData.get('competitorCons') as string)?.split(',').map(s => s.trim()).filter(Boolean),
+            zeroAdvantages: (formData.get('zeroAdvantages') as string)?.split(',').map(s => s.trim()).filter(Boolean),
+        }
+    };
+
     await updateService(slug, data);
     revalidatePath('/'); // Update public home
     revalidatePath('/services/[slug]', 'page'); // Update detail pages
