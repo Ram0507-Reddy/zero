@@ -1,7 +1,7 @@
 {
-  "slug": "zero-cache",
-  "name": "Zero Cache",
-  "description": "High-performance in-memory key-value store. Drop-in Redis alternative.",
+  "slug": "zero-audit",
+  "name": "Zero Audit",
+  "description": "Comprehensive activity logging and audit trail system.",
   "enabled": true,
   "features": [
     "High Performance",

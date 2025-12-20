@@ -1,9 +1,11 @@
 import { getServiceBySlug } from "@/lib/services";
 import ComparisonTable from "@/components/ComparisonTable";
+import FeatureBox from "@/components/FeatureBox";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { getCsrfToken } from "@/lib/auth"; // If needed for forms later, but here just display
 
-export const revalidate = 0; // Dynamic
+export const revalidate = 0;
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -14,69 +16,76 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     }
 
     return (
-        <div className="max-w-5xl mx-auto px-6 py-12">
-            <div className="mb-8">
-                <Link href="/services" className="text-sm text-gray-500 hover:text-[var(--neon)] mb-4 block">
-                    ← BACK TO FLEET
+        <main className="min-h-screen bg-black text-white selection:bg-neon selection:text-black">
+            {/* Header / Nav */}
+            <div className="border-b border-white/10 px-6 py-4 flex justify-between items-center">
+                <Link href="/" className="font-mono text-neon hover:text-white transition-colors">
+                    _ZERO_SUITE
                 </Link>
-                <div className="flex items-center gap-4 mb-2">
-                    <h1 className="text-5xl font-bold text-white">{service.name}</h1>
-                    <span className="px-3 py-1 bg-[var(--neon)] text-black text-xs font-bold uppercase">
-                        v1.0.0 STABLE
-                    </span>
+                <div className="flex gap-4 text-sm font-mono text-gray-500">
+                    <span>v1.0.0</span>
+                    <span>STABLE</span>
                 </div>
-                <p className="text-xl text-gray-400 max-w-2xl">{service.description}</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-                <div className="md:col-span-2 space-y-8">
-                    <section>
-                        <h2 className="text-lg font-bold text-[var(--neon)] mb-4 border-b border-white/10 pb-2">
-                            CORE CAPABILITIES
-                        </h2>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            {service.features.map((feature, i) => (
-                                <li key={i} className="flex items-center gap-2 text-gray-300">
-                                    <span className="w-1.5 h-1.5 bg-[var(--neon)] rounded-full" />
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
+            <div className="max-w-7xl mx-auto px-6 py-16">
 
-                    <section>
-                        <h2 className="text-lg font-bold text-[var(--neon)] mb-4 border-b border-white/10 pb-2">
-                            WHY CHOOSE {service.name.toUpperCase()}?
-                        </h2>
-                        <ul className="space-y-2">
-                            {service.pros.map((pro, i) => (
-                                <li key={i} className="text-gray-300">
-                                    <span className="text-[var(--neon)] mr-2">»</span> {pro}
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                </div>
-
-                <div className="bg-white/5 p-6 border border-white/10 h-fit">
-                    <h3 className="text-xl font-bold mb-4">DEPLOYMENT</h3>
-                    <p className="text-sm text-gray-400 mb-6">
-                        Get plain binary or Docker container. License key required for production use.
+                {/* HERO */}
+                <div className="mb-24 text-center">
+                    <div className="inline-block px-3 py-1 mb-6 bg-white/5 rounded-full border border-white/10 text-neon text-xs font-mono">
+                        {service.slug.toUpperCase()}
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-8 max-w-4xl mx-auto">
+                        {service.name}
+                    </h1>
+                    <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                        {service.description}
                     </p>
-                    <button className="w-full py-3 bg-[var(--neon)] text-black font-bold hover:bg-[#2bc90e] transition-colors mb-4">
-                        CONTACT FOR LICENSE
-                    </button>
-                    <div className="text-xs text-gray-500 font-mono">
-                        <div>DOCKER PULL zero/{service.slug}</div>
-                        <div>SHA256: e3b0c44298fc1c...</div>
+
+                    <div className="mt-12 flex justify-center gap-6">
+                        <Link href="#buy" className="bg-neon text-black font-bold px-8 py-4 hover:bg-white transition-colors">
+                            GET LICENSE
+                        </Link>
+                        <Link href="#demo" className="border border-white/20 text-white px-8 py-4 hover:border-white transition-colors">
+                            LIVE DEMO
+                        </Link>
                     </div>
                 </div>
-            </div>
 
-            <section>
-                <h2 className="text-2xl font-bold mb-6">COMPETITIVE ANALYSIS</h2>
-                <ComparisonTable comparison={service.comparison} />
-            </section>
-        </div>
+                {/* FEATURES GRID */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32">
+                    {service.features.map((feature, i) => (
+                        <FeatureBox key={i} title={feature} />
+                    ))}
+                </div>
+
+                {/* COMPARISON */}
+                <section className="mb-32">
+                    <h2 className="text-3xl font-bold mb-8 text-center">BATTLE TESTED</h2>
+                    <ComparisonTable
+                        competitorName={service.comparison.competitorName}
+                        competitorCons={service.comparison.competitorCons}
+                        zeroAdvantages={service.comparison.zeroAdvantages}
+                    />
+                </section>
+
+                {/* CONTACT CTA */}
+                <section id="buy" className="bg-white/5 border border-white/10 p-12 text-center relative overflow-hidden">
+                    {/* Glow */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon/10 blur-[100px] pointer-events-none" />
+
+                    <div className="relative z-10">
+                        <h2 className="text-4xl font-bold mb-6">Ready to Deploy?</h2>
+                        <p className="text-xl text-gray-400 mb-8">
+                            One-time purchase. Unlimited usage. Source code ownership available for Enterprise.
+                        </p>
+                        <Link href="/contact" className="bg-neon text-black font-bold text-xl px-12 py-5 inline-block hover:scale-105 transition-transform">
+                            CONTACT SALES
+                        </Link>
+                    </div>
+                </section>
+
+            </div>
+        </main>
     );
 }

@@ -1,35 +1,39 @@
-import { Service } from "@/lib/services";
+interface ComparisonProps {
+    competitorName: string;
+    competitorCons: string[];
+    zeroAdvantages: string[];
+}
 
-export default function ComparisonTable({ comparison }: { comparison: Service['comparison'] }) {
+export default function ComparisonTable({ competitorName, competitorCons, zeroAdvantages }: ComparisonProps) {
     return (
-        <div className="w-full mt-10 border border-white/10 rounded-sm overflow-hidden">
-            <div className="grid grid-cols-2 text-sm font-mono border-b border-white/10">
-                <div className="p-4 bg-red-950/20 text-red-400 border-r border-white/10 font-bold">
-                    VS {comparison.competitorName}
-                </div>
-                <div className="p-4 bg-[rgba(57,255,20,0.05)] text-[var(--neon)] font-bold">
-                    ZERO SUITE
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+            {/* Competitor / Bad Side */}
+            <div className="bg-black p-8">
+                <h3 className="text-red-500 font-mono text-xl mb-6 uppercase">VS {competitorName}</h3>
+                <ul className="space-y-4">
+                    {competitorCons.map((con, i) => (
+                        <li key={i} className="flex items-start text-gray-400">
+                            <span className="text-red-500 mr-3">✕</span>
+                            {con}
+                        </li>
+                    ))}
+                </ul>
             </div>
 
-            <div className="grid grid-cols-2 divide-x divide-white/10">
-                <div className="p-6 space-y-4 bg-red-950/10">
-                    {comparison.competitorCons.map((con, i) => (
-                        <div key={i} className="flex items-center gap-3 text-gray-400">
-                            <span className="text-red-500">✕</span>
-                            {con}
-                        </div>
-                    ))}
+            {/* Zero / Good Side */}
+            <div className="bg-black p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-neon text-black text-xs font-bold px-3 py-1 font-mono uppercase">
+                    Zero Suite
                 </div>
-
-                <div className="p-6 space-y-4 bg-[rgba(57,255,20,0.02)]">
-                    {comparison.zeroAdvantages.map((adv, i) => (
-                        <div key={i} className="flex items-center gap-3 text-white">
-                            <span className="text-[var(--neon)]">✓</span>
-                            {adv}
-                        </div>
+                <h3 className="text-neon font-mono text-xl mb-6 uppercase">WHY ZERO?</h3>
+                <ul className="space-y-4">
+                    {zeroAdvantages.map((pro, i) => (
+                        <li key={i} className="flex items-start text-white">
+                            <span className="text-neon mr-3">✓</span>
+                            {pro}
+                        </li>
                     ))}
-                </div>
+                </ul>
             </div>
         </div>
     );

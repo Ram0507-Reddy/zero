@@ -13,7 +13,8 @@ export default {
         neon: "var(--neon)",
       },
       fontFamily: {
-        mono: ['monospace'],
+        mono: ['Courier New', 'Courier', 'monospace'],
+        sans: ['Arial', 'Helvetica', 'sans-serif'],
       },
     },
   },

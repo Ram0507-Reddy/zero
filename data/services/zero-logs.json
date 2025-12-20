@@ -1,7 +1,7 @@
 {
-  "slug": "zero-cache",
-  "name": "Zero Cache",
-  "description": "High-performance in-memory key-value store. Drop-in Redis alternative.",
+  "slug": "zero-logs",
+  "name": "Zero Logs",
+  "description": "Centralized log aggregation and analysis service.",
   "enabled": true,
   "features": [
     "High Performance",

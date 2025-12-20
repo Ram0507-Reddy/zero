@@ -1,7 +1,7 @@
 {
-  "slug": "zero-cache",
-  "name": "Zero Cache",
-  "description": "High-performance in-memory key-value store. Drop-in Redis alternative.",
+  "slug": "zero-webhooks",
+  "name": "Zero Webhooks",
+  "description": "Reliable webhook dispatch and management service.",
   "enabled": true,
   "features": [
     "High Performance",

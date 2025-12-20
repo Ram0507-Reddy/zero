@@ -1,0 +1,30 @@
+{
+    "slug": "zero-notify",
+    "name": "Zero Notify",
+    "description": "Unified transactional messaging service. Send emails, SMS, and Push Notifications via a single API.",
+    "enabled": true,
+    "features": [
+        "Unified API for Email, SMS, Push",
+        "Provider Agnostic (Switch SMTP/SMS backends easily)",
+        "Template Management",
+        "Delivery Logs & Retry Logic"
+    ],
+    "pros": [
+        "Consolidate all notifications in one place",
+        "No per-message markup fees",
+        "Own your delivery logs"
+    ],
+    "comparison": {
+        "competitorName": "Twilio / SendGrid",
+        "competitorCons": [
+            "Per-message pricing scales poorly",
+            "Vendor lock-in",
+            "Shared IP reputation risks"
+        ],
+        "zeroAdvantages": [
+            "Bring your own providers",
+            "Flat licensing",
+            "Isolated infrastructure"
+        ]
+    }
+}

@@ -3,38 +3,79 @@
 @tailwind utilities;
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --neon: #39ff14;
+  --background: #ffffff;
+  --foreground: #171717;
+  --neon: #03FC6F;
+  /* User Requested RGB(3, 252, 111) */
+  /* Emerald Green - More Formal, Less Radioactive */
+  /* Fallback */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+  }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Scrollbar */
+/* Custom Selection Color */
+::selection {
+  background-color: var(--neon);
+  color: black;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #000;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #222;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--neon);
 }
 
+/* Utilities */
 @layer utilities {
+  .text-neon {
+    color: var(--neon);
+  }
+
+  .bg-neon {
+    background-color: var(--neon);
+  }
+
+  .border-neon {
+    border-color: var(--neon);
+  }
+
+  .ring-neon {
+    --tw-ring-color: var(--neon);
+  }
+
+  .shadow-neon {
+    --tw-shadow-color: var(--neon);
+  }
+
   .neon-text {
     color: var(--neon);
     text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
   }
-  
+
   .neon-border {
     border-color: var(--neon);
     box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);

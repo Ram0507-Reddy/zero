@@ -1,7 +1,7 @@
 {
-  "slug": "zero-cache",
-  "name": "Zero Cache",
-  "description": "High-performance in-memory key-value store. Drop-in Redis alternative.",
+  "slug": "zero-pdf",
+  "name": "Zero PDF",
+  "description": "HTML to PDF conversion engine. Generate invoices and reports instantly.",
   "enabled": true,
   "features": [
     "High Performance",

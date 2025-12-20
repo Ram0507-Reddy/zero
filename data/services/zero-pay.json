@@ -1,30 +1,30 @@
 {
     "slug": "zero-pay",
     "name": "Zero Pay",
-    "description": "Universal payment orchestration. Connect Stripe, PayPal, and Crypto through a single unified API.",
+    "description": "The developer-first payment gateway wrapper. Accept UPI, Cards, and Wallets with uniform API and 0% platform fees.",
     "enabled": true,
     "features": [
-        "Unified Payment API",
-        "Subscription Management",
-        "Automatic Tax Calculation",
-        "Fraud Detection"
+        "Unified Payment API (Razorpay, Stripe, PayPal)",
+        "Smart Routing / Failover",
+        "Local Webhook Reconciliation",
+        "Instant Settlements (Direct-to-Bank)"
     ],
     "pros": [
-        "Switch providers instantly",
-        "Zero transaction fees from us",
-        "Self-hosted PCI compliance helper"
+        "0% Transaction Fee (Standard Gateway charges apply)",
+        "No holding periods",
+        "Developer-friendly REST API"
     ],
     "comparison": {
-        "competitorName": "Paddle / Stripe Wrapper",
+        "competitorName": "Stripe / Razorpay Direct",
         "competitorCons": [
-            "High platform fees",
-            "Account bans without warning",
-            "Hosted-only checkout"
+            "Platform fees (1-2% extra)",
+            "Account freezes / Settlement delays",
+            "Complex integration for multiple providers"
         ],
         "zeroAdvantages": [
             "Direct provider relationship",
-            "Keep all your data",
-            "Custom checkout flows"
+            "No middleman risk",
+            "Switch providers without code changes"
         ]
     }
 }
