@@ -43,16 +43,22 @@ export async function POST(request: Request) {
             if (!phoneRegex.test(phone)) return errorResponse('Invalid phone number', 400);
         }
 
-        // Save the submission as a lead
-        await addLead({
-            name,
-            email,
-            phone: phone || null,
-            company: company || null,
-            companyType: type || null, // Map original 'type' to 'companyType'
-            action: preferredAction || 'Standard Inquiry', // Map original 'preferredAction' to 'action'
-            message
-        });
+        // Save the submission as a lead (Best Effort - might fail on Vercel Read-Only FS)
+        try {
+            await addLead({
+                name,
+                email,
+                phone: phone || null,
+                company: company || null,
+                companyType: type || null, // Map original 'type' to 'companyType'
+                action: preferredAction || 'Standard Inquiry', // Map original 'preferredAction' to 'action'
+                message
+            });
+        } catch (fsError) {
+            console.warn('Failed to save lead to local JSON (expected on Vercel):', fsError);
+            // Continue to email sending - that's our source of truth now
+        }
+
 
         // 3. SMTP Configuration
         const transporter = nodemailer.createTransport({
