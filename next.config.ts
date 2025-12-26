@@ -19,20 +19,19 @@ const nextConfig: NextConfig = {
         ]
       }
     ]
-    ]
   },
   async rewrites() {
-  return [
-    {
-      source: '/notes',
-      destination: 'https://zero-message.vercel.app/notes',
-    },
-    {
-      source: '/notes/:path*',
-      destination: 'https://zero-message.vercel.app/notes/:path*',
-    },
-  ]
-}
+    return [
+      {
+        source: '/notes',
+        destination: 'https://zero-message.vercel.app/notes',
+      },
+      {
+        source: '/notes/:path*',
+        destination: 'https://zero-message.vercel.app/notes/:path*',
+      },
+    ]
+  }
 };
 
 export default nextConfig;
