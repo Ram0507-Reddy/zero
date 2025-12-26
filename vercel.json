@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/notes",
+      "destination": "https://zero-message.vercel.app/notes"
+    },
+    {
+      "source": "/notes/:match*",
+      "destination": "https://zero-message.vercel.app/notes/:match*"
+    }
+  ]
+}
