@@ -1,0 +1,29 @@
+{
+  "slug": "zero-filestore",
+  "name": "Zero FileStore",
+  "description": "S3-compatible object storage for local environments.",
+  "enabled": true,
+  "features": [
+    "High Performance",
+    "Docker Ready",
+    "Zero Dependency"
+  ],
+  "pros": [
+    "Self-hosted",
+    "One-time fee",
+    "Data Privacy"
+  ],
+  "comparison": {
+    "competitorName": "SaaS Alternatives",
+    "competitorCons": [
+      "Recurring costs",
+      "Data privacy risks",
+      "Vendor lock-in"
+    ],
+    "zeroAdvantages": [
+      "Lifetime License",
+      "Full Control",
+      "Offline Capable"
+    ]
+  }
+}

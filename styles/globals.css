@@ -1,0 +1,37 @@
+/* @import './fonts.css'; - Replaced by next/font in layout.tsx */
+@import './theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ZERO-safe baseline */
+
+html,
+body {
+  width: 100%;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* HARD DISABLE GPU ARTIFACT TRIGGERS 
+   Note: Commented out because strict transform:none breaks animate-in visibility 
+*/
+/*
+* {
+  filter: none !important;
+  backdrop-filter: none !important;
+  mix-blend-mode: normal !important;
+  transform: none;
+}
+*/
+
+/* Text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

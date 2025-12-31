@@ -1,0 +1,29 @@
+{
+  "slug": "zero-audit",
+  "name": "Zero Audit",
+  "description": "Comprehensive activity logging and audit trail system.",
+  "enabled": true,
+  "features": [
+    "High Performance",
+    "Docker Ready",
+    "Zero Dependency"
+  ],
+  "pros": [
+    "Self-hosted",
+    "One-time fee",
+    "Data Privacy"
+  ],
+  "comparison": {
+    "competitorName": "SaaS Alternatives",
+    "competitorCons": [
+      "Recurring costs",
+      "Data privacy risks",
+      "Vendor lock-in"
+    ],
+    "zeroAdvantages": [
+      "Lifetime License",
+      "Full Control",
+      "Offline Capable"
+    ]
+  }
+}

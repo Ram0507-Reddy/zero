@@ -1,0 +1,30 @@
+{
+    "slug": "zero-media",
+    "name": "Zero Media",
+    "description": "High-performance image optimization & compression engine. Resize, convert, and optimize images on the fly.",
+    "enabled": true,
+    "features": [
+        "On-the-fly Format Conversion (WebP/AVIF)",
+        "Smart Compression (Lossy/Lossless)",
+        "Responsive Resizing",
+        "Watermarking Support"
+    ],
+    "pros": [
+        "Significantly reduces bandwidth costs",
+        "Improves SEO & Core Web Vitals",
+        "Private - Images verify leave your server"
+    ],
+    "comparison": {
+        "competitorName": "Cloudinary / Imgix",
+        "competitorCons": [
+            "Expensive bandwidth overages",
+            "Complex URL signing",
+            "Data privacy concerns"
+        ],
+        "zeroAdvantages": [
+            "One-time cost",
+            "Unlimited transformations",
+            "Total data sovereignty"
+        ]
+    }
+}

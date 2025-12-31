@@ -1,0 +1,29 @@
+{
+  "slug": "zero-cache",
+  "name": "Zero Cache",
+  "description": "High-performance in-memory key-value store. Drop-in Redis alternative.",
+  "enabled": true,
+  "features": [
+    "High Performance",
+    "Docker Ready",
+    "Zero Dependency"
+  ],
+  "pros": [
+    "Self-hosted",
+    "One-time fee",
+    "Data Privacy"
+  ],
+  "comparison": {
+    "competitorName": "SaaS Alternatives",
+    "competitorCons": [
+      "Recurring costs",
+      "Data privacy risks",
+      "Vendor lock-in"
+    ],
+    "zeroAdvantages": [
+      "Lifetime License",
+      "Full Control",
+      "Offline Capable"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "hero": {
+        "line1": "PRIVACY IS THE",
+        "line2": "DEFAULT STATE.",
+        "description": "Designed to align with high-security and regulated environments. Built with privacy-first, offline-capable principles.",
+        "cta": "EXPLORE THE SUITE",
+        "cert1": "Designed to align with ISO/IEC 27001",
+        "cert2": "Designed to align with GDPR"
+    },
+    "founder": {
+        "title": "From the desk of the founder",
+        "p1": "ZERO was not started to compete with existing platforms. It was started because something fundamental was missing.",
+        "p2": "Today’s technology landscape prioritizes speed, scale, and growth — often at the cost of privacy, control, and long-term trust. Systems are built to extract data, lock users into subscriptions, and centralize power.",
+        "p3_1": "I believe privacy should not be a feature you enable.",
+        "p3_2": "It should be the default state of a system.",
+        "name": "Shriram Reddy",
+        "role": "FOUNDER & SECURITY LEAD"
+    },
+    "grid": {
+        "card1_title": "DATA SOVEREIGNTY",
+        "card1_desc": "Data ownership is explicit. ZERO has no access by default. 100% user-owned. No silent collection. Designed for regulated and institutional environments.",
+        "card2_title": "OFFLINE FIRST",
+        "card2_desc": "Designed to operate in offline and isolated network environments, including air-gapped deployments.",
+        "card3_title": "NO TELEMETRY",
+        "card3_desc": "ZERO systems are designed with telemetry disabled by default. Any data collection requires explicit configuration by the operator.",
+        "card4_title": "ONE-TIME LICENSE",
+        "card4_desc": "Stop renting your infrastructure. Pay once, deploy forever. Zero vendor lock-in. Procurement friendly."
+    }
+}

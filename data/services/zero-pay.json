@@ -1,0 +1,30 @@
+{
+    "slug": "zero-pay",
+    "name": "Zero Pay",
+    "description": "The developer-first payment gateway wrapper. Accept UPI, Cards, and Wallets with uniform API and 0% platform fees.",
+    "enabled": true,
+    "features": [
+        "Unified Payment API (Razorpay, Stripe, PayPal)",
+        "Smart Routing / Failover",
+        "Local Webhook Reconciliation",
+        "Instant Settlements (Direct-to-Bank)"
+    ],
+    "pros": [
+        "0% Transaction Fee (Standard Gateway charges apply)",
+        "No holding periods",
+        "Developer-friendly REST API"
+    ],
+    "comparison": {
+        "competitorName": "Stripe / Razorpay Direct",
+        "competitorCons": [
+            "Platform fees (1-2% extra)",
+            "Account freezes / Settlement delays",
+            "Complex integration for multiple providers"
+        ],
+        "zeroAdvantages": [
+            "Direct provider relationship",
+            "No middleman risk",
+            "Switch providers without code changes"
+        ]
+    }
+}

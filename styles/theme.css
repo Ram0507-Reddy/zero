@@ -1,0 +1,103 @@
+:root {
+  /* Zero Elevation Scale */
+  --bg-base: #000000;
+  --bg-panel: #0A0A0A;
+  --bg-card: #111111;
+  --bg-hover: #161616;
+
+  /* Theme Mappings */
+  --bg-main: var(--bg-base);
+  --text-main: #FEFEFE;
+
+  --text-muted: #9CA3AF;
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --card-bg: var(--bg-card);
+  --nav-bg: var(--bg-panel);
+  --code-bg: var(--bg-card);
+  --code-header: var(--bg-hover);
+
+  /* Accent Color */
+  --accent: #22C55E;
+
+  /* Neon Green Ref */
+  --neon: #22c55e;
+}
+
+/* Light mode overrides (optional/unused for now) */
+[data-theme='light'] {
+  --bg-main: #FEFEFE;
+  --text-main: #050505;
+
+  --text-muted: #525252;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --nav-bg: rgba(254, 254, 254, 0.8);
+  --code-bg: #F3F4F6;
+  --code-header: #E5E7EB;
+}
+
+/* Force body to take the background color */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-zero-green {
+  color: var(--accent);
+}
+
+.bg-zero-green {
+  background-color: var(--accent);
+}
+
+.border-zero-green {
+  border-color: var(--accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: #CCC;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--card-bg);
+  /* filter removed for Zero-Safe compliance */
+  border: 1px solid var(--border-color);
+}
+
+/* Slow blink for cursor */
+.cursor-blink {
+  animation: blink-animation 1.5s step-end infinite;
+}
+
+@keyframes blink-animation {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
